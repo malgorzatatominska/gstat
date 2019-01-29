@@ -1,0 +1,38 @@
+#Wstęp {#intro}
+##O geostatystyce
+Skoro dotarłeś/aś aż tutaj zapewne wiesz czym jest geostatystyka. Jeśli jednak nadal nie pamiętasz definicji brzmi ona następująco: to zbiór narzędzi statystycznych uwzględniających w analizie danych ich przestrzenną i czasową lokalizację, a opartych o teorię funkcji losowych (Gooverts 1997).
+
+Znaczy to mniej więcej tyle, że odnosimy nasze dane w przestrzeni (zatem mają konkretną lokalizację) oraz w czasie. Teoria funkcji losowych mówi natomiast o tym, że w strukturze damych nie rządzą się z góry jasne prawa i trzeba samemu je odkryć.
+
+##Oprogramowanie i dane
+
+Na tej stronie wykorzystywany jest skrypt, który bez problemu możesz zaimplementować w **R Studio**. Jeśli nie posiadasz tego oprogramowania zachęcam do jego zainstalowania. Aby w pełni móc korzystać z jego możliwości należy zainstalować **CRAN R** jako podstawę języka R, a następnie R Studio jako interface.
+
+* <https://cran.r-project.org/>
+* <https://www.rstudio.com/products/rstudio/download/>
+
+Skoro masz na czym pracować, to warto przejść do danych z jakich będziesz w tym skrypcie korzystać. Dane pochoszą z pakietu **gstat**. Jest to zbiór danych *Jura*, które są dołączone do tego pakietu. Zawierają informacje takie jak:
+
+
+
+* współrzędne
+* użytkowanie terenu
+* rodzaj skał (geologię)
+* stężenia pierwiastków chemicznych takich jak:
+    - Cd
+    - **Co** (wykorzystywany w kodzie na tej stronie)
+    - Cr
+    - Cu
+    - Ni
+    - Pb
+    - Zn
+
+
+**Jak wczytać inne dane?**
+
+Istnieje wiele stron internetowych i publikacji poświęconych R. W każdej z nich znajdziesz informację o implementacji danych z różnych źródeł. Te najpowszechniejsze to:
+
+* read.table() - dla plików **.txt**
+* readRDS - dla plików **.rds**
+* read.csv() i read.csv2() - dla plików **.csv**
+* readOGR() - dla plików **.shp**

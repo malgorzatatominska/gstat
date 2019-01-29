@@ -1,0 +1,19 @@
+--- 
+title: "Analiza i modelowanie struktury przestrzennej z gstat"
+author: "Malgorzata Tominska"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "Analiza i modelowanie struktury przestrzennej w R"
+---
+
+# Intro
+
+Ta strona internetowa omawia szerzej zagadnienia związane z analizą i modelowaniem struktury przestrzennej z gstat, aniżeli mój autorski cheat sheet. Jest to integralna część pracy inżynierskiej.
+
+Miłego korzystania!

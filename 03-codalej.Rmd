@@ -1,0 +1,7 @@
+#Co dalej?
+
+Estymacje wraz z oceną ich jakości to zagadnienie bardzo szerokie. Jeśli chcecie je poznać odsyłam Was np. tutaj: [link](https://bookdown.org/nowosad/Geostatystyka/)
+
+A więcej o pakiecie gstat znajdziecie [tu](https://cran.r-project.org/web/packages/gstat/gstat.pdf) lub na moich autorskich [cheat sheet'ach]().
+
+###**MIŁEJ NAUKI!**
