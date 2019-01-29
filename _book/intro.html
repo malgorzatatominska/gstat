@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 2 Wstęp | Analiza i modelowanie struktury przestrzennej z gstat</title>
+  <meta name="description" content="Analiza i modelowanie struktury przestzrennej w R">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 2 Wstęp | Analiza i modelowanie struktury przestrzennej z gstat" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Analiza i modelowanie struktury przestzrennej w R" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Wstęp | Analiza i modelowanie struktury przestrzennej z gstat" />
+  
+  <meta name="twitter:description" content="Analiza i modelowanie struktury przestzrennej w R" />
+  
+
+<meta name="author" content="Malgorzata Tominska">
+
+
+<meta name="date" content="2019-01-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="co-dalej.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intro</a></li>
+<li class="chapter" data-level="2" data-path="index.html"><a href="index.html#intro"><i class="fa fa-check"></i><b>2</b> Wstęp</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2.1</b> O geostatystyce</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#oprogramowanie-i-dane"><i class="fa fa-check"></i><b>2.2</b> Oprogramowanie i dane</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="co-dalej.html"><a href="co-dalej.html"><i class="fa fa-check"></i><b>3</b> Co dalej?</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="co-dalej.html"><a href="co-dalej.html#miej-nauki"><i class="fa fa-check"></i><b>3.0.1</b> <strong>MIŁEJ NAUKI!</strong></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analiza i modelowanie struktury przestrzennej z gstat</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Wstęp</h1>
+<div id="o-geostatystyce" class="section level2">
+<h2><span class="header-section-number">2.1</span> O geostatystyce</h2>
+<p>Skoro dotarłeś/aś aż tutaj zapewne wiesz czym jest geostatystyka. Jeśli jednak nadal nie pamiętasz definicji brzmi ona następująco: to zbiór narzędzi statystycznych uwzględniających w analizie danych ich przestrzenną i czasową lokalizację, a opartych o teorię funkcji losowych (Gooverts 1997).</p>
+<p>Znaczy to mniej więcej tyle, że odnosimy nasze dane w przestrzeni (zatem mają konkretną lokalizację) oraz w czasie. Teoria funkcji losowych mówi natomiast o tym, że w strukturze damych nie rządzą się z góry jasne prawa i trzeba samemu je odkryć.</p>
+</div>
+<div id="oprogramowanie-i-dane" class="section level2">
+<h2><span class="header-section-number">2.2</span> Oprogramowanie i dane</h2>
+<p>Na tej stronie wykorzystywany jest skrypt, który bez problemu możesz zaimplementować w <strong>R Studio</strong>. Jeśli nie posiadasz tego oprogramowania zachęcam do jego zainstalowania. Aby w pełni móc korzystać z jego możliwości należy zainstalować <strong>CRAN R</strong> jako podstawę języka R, a następnie R Studio jako interface.</p>
+<ul>
+<li><a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></li>
+<li><a href="https://www.rstudio.com/products/rstudio/download/" class="uri">https://www.rstudio.com/products/rstudio/download/</a></li>
+</ul>
+<p>Skoro masz na czym pracować, to warto przejść do danych z jakich będziesz w tym skrypcie korzystać. Dane pochoszą z pakietu <strong>gstat</strong>. Jest to zbiór danych <em>Jura</em>, które są dołączone do tego pakietu. Zawierają informacje takie jak:</p>
+<ul>
+<li>współrzędne</li>
+<li>użytkowanie terenu</li>
+<li>rodzaj skał (geologię)</li>
+<li>stężenia pierwiastków chemicznych takich jak:
+<ul>
+<li>Cd</li>
+<li><strong>Co</strong> (wykorzystywany w kodzie na tej stronie)</li>
+<li>Cr</li>
+<li>Cu</li>
+<li>Ni</li>
+<li>Pb</li>
+<li>Zn</li>
+</ul></li>
+</ul>
+<p><strong>Jak wczytać inne dane?</strong></p>
+<p>Istnieje wiele stron internetowych i publikacji poświęconych R. W każdej z nich znajdziesz informację o implementacji danych z różnych źródeł. Te najpowszechniejsze to:</p>
+<ul>
+<li>read.table() - dla plików <strong>.txt</strong></li>
+<li>readRDS - dla plików <strong>.rds</strong></li>
+<li>read.csv() i read.csv2() - dla plików <strong>.csv</strong></li>
+<li>readOGR() - dla plików <strong>.shp</strong></li>
+</ul>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="co-dalej.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-wstep.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

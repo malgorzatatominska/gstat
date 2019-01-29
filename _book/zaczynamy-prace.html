@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Chapter 2 Zaczynamy pracę | Analiza i modelowanie struktury przestrzennej z gstat</title>
+  <meta name="description" content="Analiza i modelowanie struktury przestzrennej w R">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Chapter 2 Zaczynamy pracę | Analiza i modelowanie struktury przestrzennej z gstat" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Analiza i modelowanie struktury przestzrennej w R" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Zaczynamy pracę | Analiza i modelowanie struktury przestrzennej z gstat" />
+  
+  <meta name="twitter:description" content="Analiza i modelowanie struktury przestzrennej w R" />
+  
+
+<meta name="author" content="Malgorzata Tominska">
+
+
+<meta name="date" content="2019-01-29">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="co-dalej.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Intro</a></li>
+<li class="chapter" data-level="2" data-path="zaczynamy-prace.html"><a href="zaczynamy-prace.html"><i class="fa fa-check"></i><b>2</b> Zaczynamy pracę</a><ul>
+<li class="chapter" data-level="2.1" data-path="zaczynamy-prace.html"><a href="zaczynamy-prace.html#niezbedne-pakiety-i-szybki-start"><i class="fa fa-check"></i><b>2.1</b> Niezbędne pakiety i szybki start</a></li>
+<li class="chapter" data-level="2.2" data-path="zaczynamy-prace.html"><a href="zaczynamy-prace.html#obliczanie-semiwariancji-i-pierwszy-krok-w-analizie-struktury-przestrzennej"><i class="fa fa-check"></i><b>2.2</b> Obliczanie semiwariancji i pierwszy krok w analizie struktury przestrzennej</a></li>
+<li class="chapter" data-level="2.3" data-path="zaczynamy-prace.html"><a href="zaczynamy-prace.html#modelowanie-struktury-przestrzennej"><i class="fa fa-check"></i><b>2.3</b> Modelowanie struktury przestrzennej</a></li>
+<li class="chapter" data-level="2.4" data-path="zaczynamy-prace.html"><a href="zaczynamy-prace.html#anizotropia-i-modele-kierunkowe"><i class="fa fa-check"></i><b>2.4</b> Anizotropia i modele kierunkowe</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="co-dalej.html"><a href="co-dalej.html"><i class="fa fa-check"></i><b>3</b> Co dalej?</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="co-dalej.html"><a href="co-dalej.html#miej-nauki"><i class="fa fa-check"></i><b>3.0.1</b> <strong>MIŁEJ NAUKI!</strong></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analiza i modelowanie struktury przestrzennej z gstat</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="zaczynamy-prace" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Zaczynamy pracę</h1>
+<div id="niezbedne-pakiety-i-szybki-start" class="section level2">
+<h2><span class="header-section-number">2.1</span> Niezbędne pakiety i szybki start</h2>
+<p>Aby w pełni wykonywać polecenia zainstaluj na początku pracy wszytkie poniższe pakiety za pomocą polecenia <code>install.packages()</code> a następnie wcztytaje je tak jak poniżej:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gstat)
+<span class="kw">library</span>(sp)
+<span class="kw">library</span>(ggplot2)</code></pre></div>
+<p>Natępnym krokiem jest wczystanie danych i nadanie im koordynatów, czyli współrzędnych za pomocą pakietu <code>sp</code>. Niezbędny jest też proces “czyszczenia danych”, który wiąże się z usunięciem wartości odstajacych z interesującego nas zbioru danych.</p>
+<p><strong>!!</strong> wartości odstające - ekstrema, są to wartości zazwyczaj wynikające z jakiegoś błęgu, np. pomiarowego. Mnogość wystąpień ekstrem potrafi zdeformować informację o strukturze danych, ponieważ funkcja semiwariancji jest czuła na anomalie (ponieważ podnosimy liczby do kwadratu), więc nawet jedna taka dana zaburza wyniki.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(jura)
+dane_jura &lt;-<span class="st"> </span>prediction.dat
+dane_sp &lt;-<span class="st"> </span>dane_jura
+<span class="kw">coordinates</span>(dane_sp) &lt;-<span class="st"> </span><span class="er">~</span>Xloc +<span class="st"> </span>Yloc
+
+<span class="kw">tail</span>(<span class="kw">sort</span>(dane_sp$Co), <span class="dv">30</span>) <span class="co">#liczba na końcu informuje ile wartości chcemy zobaczyć</span></code></pre></div>
+<pre><code>##  [1] 13.36 13.40 13.48 13.52 13.56 13.56 13.80 13.84 13.88 14.12 14.16
+## [12] 14.20 14.20 14.24 14.32 14.32 14.36 14.48 14.60 14.60 14.64 15.08
+## [23] 15.12 15.20 15.28 16.32 16.92 17.32 17.32 17.72</code></pre>
+<p>Funkcja <code>tail</code> pokazuje ostatne wartości zbioru danych. Jeśli je jeszcze posortujemy używając funkcji <code>sort</code>, dostaniemy nie tylko końcowe wartości, ale w dodatku uszeregowane malejąco. Zatem jest to szybki sposób na zbadanie, czy w naszych danych znajdują się wartości globalnie odstające, jeśli tak, to można je usunąć tak jak poniżej, gdzie liczba <strong>15</strong> określa wartość, po której nasępują prawdopodobnie błędne wartości:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dane &lt;-<span class="st"> </span>dane_sp[dane_sp@data$Co&lt;<span class="dv">15</span>,]</code></pre></div>
+<p>Kolejnym krokiem czyszczenia naszych danych jest wyelimowanie wartości pustych - NA. Tym zbiorze nie ma takich rekordów, ale jeśli będziecie mieć z takim do czynienia, za pomocą jednej linijki kodu możecie je szybko usunąć.</p>
+<p><strong>!!</strong> jeśli pominiecie ten krok, a w zbiorze danych pojawią się puste rekordy, to obliczenie semiwariancji będzie niemożliwe</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dane_bezNA &lt;-<span class="st"> </span>dane[!<span class="kw">is.na</span>(dane@data$Co),] </code></pre></div>
+</div>
+<div id="obliczanie-semiwariancji-i-pierwszy-krok-w-analizie-struktury-przestrzennej" class="section level2">
+<h2><span class="header-section-number">2.2</span> Obliczanie semiwariancji i pierwszy krok w analizie struktury przestrzennej</h2>
+<p>Skoro masz już przygotowane dane, to nic nie stoi na przeszkodzie aby z nich skorzystać i wykonać analizę struktury przestrzennej zjawiska. W tym celu pomoże nam obliczenie semiwariacji, która jest miarą niepodobieństwa - zatem rośnie wraz z odległością. Semiwariancja, to inaczej przeciwieństwo <strong>korelacji</strong>.</p>
+<p><strong>!!</strong> korelacja - inaczej współzależność cech, określa siłę związku między parami cech w skali od -1 do 1. &lt;-1,0) - wzrost wartości jednej cechy wiąże się ze spadkiem drugiej, np. ilość turystów zdobywających szczyty górskie zmniejsza się ze wzrostem wysokości n.p.m. 0 - brak związku między cechami (0-1&gt; - obie cechy rosną w tym samym czasie, np. wykorzystanie żeglugi morskiej do celów handlowych wzrosło wraz z rozpowszechnieniem map nawigacyjnych</p>
+<p>Pierwszym krokiem jaki należy wykonać jest obliczenie wartości semiwariancji. W tym celu podajemy w funkcji <code>variogram()</code> kolumnę do której ma się odwołać (w tym przypadku <em>Co</em>) oraz zbiór danych, z których ma tę kolumnę pobrać. Za pomocą funkcji <code>plot()</code> możemy wyświetlić graficzną reprezentację tych obliczeń. Funkcja plot() - jest zawarta w pakiecie gstat i nie potrzebuje instalcji dodatkowego pakietu. Więcej informacji o plotcie znajdziesz np. tutaj: <a href="https://www.rdocumentation.org/packages/graphics/versions/3.4.3/topics/plot">link</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v1 &lt;-<span class="st"> </span><span class="kw">variogram</span>(Co~<span class="dv">1</span>, dane)
+<span class="kw">plot</span>(v1)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>W ten sposób obliczyliśmy najprostrzą semiwariancję. Mając już jakieś pojęcie, jak wygląda semiwariogram, można go lepiej dopasować za pomocą parametrów <strong>cutoff</strong> i <strong>width</strong>. <code>Cutoff</code> odpowiada za zakres semiwariogramu, który wypada na osi X. <code>Width</code> to z kolei szerokość odstępu między próbkami.</p>
+<p>Dobre dobranie obu parametrów, zazwyczaj odbywa się za pomocą metody prób i błędów.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">v2 &lt;-<span class="st"> </span><span class="kw">variogram</span>(Co~<span class="dv">1</span>, dane, <span class="dt">cutoff =</span> <span class="dv">3</span>, <span class="dt">width =</span> <span class="fl">0.25</span>)
+<span class="kw">plot</span>(v2)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+</div>
+<div id="modelowanie-struktury-przestrzennej" class="section level2">
+<h2><span class="header-section-number">2.3</span> Modelowanie struktury przestrzennej</h2>
+<p>Mając obliczoną wartość semiwariancji można przejść do wyboru odpowiedniego modelu. Pakiet gstat oferuje, aż 20 różnych modeli, z czego 17 ma swoją reprezentację graficzną. Aby wyświetlić dostępne modele używa się funkcji <code>show.vgms</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">show.vgms</span>()</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Znając wygląd naszego semiwariogramu można przejść do dopasowania modelu, bądź też modeli. W tym przypadku relatywnie dobrze pasuje model sferyczny, oznaczony tutaj jako <strong>“Sph”</strong>. W tym celu używa się funkcji <code>vgm()</code>, która wymaga podania:</p>
+<ul>
+<li>typu modelu (W tym przypadku “Sph”)</li>
+<li>psill - czyli wariancji czstąkowej, miejsca w którym semiwariogram się stabilizuje</li>
+<li>range - zasięg</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m1 &lt;-<span class="st"> </span><span class="kw">vgm</span>(<span class="st">&quot;Sph&quot;</span>, <span class="dt">psill =</span> <span class="fl">12.5</span>, <span class="dt">range =</span> <span class="fl">1.6</span>)
+<span class="kw">plot</span>(v2,m1)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Jak widać powyżej, model nie został dobrany idealnie. Można zauważyć, że jeśli by tylko model startwał wyżej (np. na wysokości wartości 1.5 na osi Y), to lepiej by się wpasował w dane. Jest to jak najbardziej możliwe, jeśli do wcześniejszej funkcji zostanie dodany parametr <code>nugget</code>. <strong>Nugget</strong> jest odzwierciedleniem pewnych błędóW, które zaszły podczas pobierania próbek. Jest on najczęściej wynikiem zbyt dużego <strong>“lagu”</strong>, czyli odstępu próbkowania w stosunku do zmienności zjawiska. Innymi słowy: zmienność zjawiska jest obserwowana na odległości mniejszej niż zaistniało próbkowanie.</p>
+<p>Możliwe, że dodatkowy parametr będzie wymagał modernizacji <em>psill</em> czy <em>range</em>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">m2 &lt;-<span class="st"> </span><span class="kw">vgm</span>(<span class="st">&quot;Sph&quot;</span>, <span class="dt">psill =</span> <span class="dv">12</span>, <span class="dt">range =</span> <span class="fl">1.4</span>, <span class="dt">nugget =</span> <span class="fl">1.5</span>)
+<span class="kw">plot</span>(v2,m2)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>Istnieje możliwość atomatycznego dopasowania modelu do wcześniej obliczonej semiwariancji. Odpowiednia funkcja do takiej automatyzacji to <strong>fit.variogram()</strong>, która wymaga podania zaledwie dwóch parametróW: obliczonej semiwariancji i dopasowanego modelu.</p>
+<p><strong>Dlaczego ta fuknkcja nazywana jest automatyczną?</strong></p>
+<p>Można się zastanowiać, jak funkcja, która pobiera od nas obliczoną wartość semiwariancji i dobrze dobrany model jest nazywana <strong>automatyczną</strong>, skoro wymaga podania wszystkich informacji? Otóź, funkcja <code>fit.variogram()</code> pozwala na prawie idealne dopasowanie z dużą dokładnością liczb po przecinku. To, jakiej jakości dostarczymy “surowe” dane, tak funkcja dopasuje nam model. Można zatem powiedzieć, że to metoda <strong>półatuomatyczna</strong>, gdzie badacz ma nadal wpływ na wynik, a jednak znacznie przyśpiesza to jego pracę.</p>
+<p><strong>!!</strong> na funkcję <code>fit.variogram()</code> ogromny wpływ ma model, który zostaje mu dostarczony jako drugi parametr!</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">f &lt;-<span class="st"> </span><span class="kw">fit.variogram</span>(v2, m2)
+<span class="kw">plot</span>(v2,f)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Jak można zauważyć, model został dopasowany znacznie lepiej.</p>
+</div>
+<div id="anizotropia-i-modele-kierunkowe" class="section level2">
+<h2><span class="header-section-number">2.4</span> Anizotropia i modele kierunkowe</h2>
+<p>Anizotropia, poza odległością, określa też kierunek zmian. Innymi słowy ukazuje czy w naszym zbiorze danych istnieje jakiś czynnik, który powoduje, że nasze zjawisko zmienia się dynamiczniej wraz z kierunkiem, w którym się poruszamy, np. koncentacja Co zmienia się w kierunku od SW do NE (patrz: <em>mapa</em>).</p>
+<p>W celu określenia <strong>anizotropii</strong> można wygenerować mapę semiwariancji.</p>
+<p>Aby uzyskać mapę semiwariancji, należy dodać do wcześniejszych obliczeń parametr <code>map = TRUE</code>. Jeśli kolory domyślej mapy są nieczytelne można je zmienić używajac parametru <code>col.regions</code>. Dodatkowo używając parametru <code>threshold</code> możemy uniknąć danych, które są wyświetlane na podstawie niereprezentatywne próbki.</p>
+<p><strong>!!</strong> reprezentatywne próbki- w geostatystyce aby otrzymać w pełni wiarygodną wartość semiwariancji potrzeba min. 30 par punktów (oczywiście im więcej par tym lepiej)</p>
+<p><img src="D:/Studia/INZYNIERKA2/colregions.png" width="485" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mapa &lt;-<span class="st"> </span><span class="kw">variogram</span>(Co~<span class="dv">1</span>, dane, <span class="dt">cutoff =</span> <span class="dv">3</span>, <span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">map =</span> <span class="ot">TRUE</span>)
+<span class="kw">plot</span>(mapa, <span class="dt">col.regions =</span> <span class="kw">topo.colors</span>(<span class="dv">16</span>), <span class="dt">threshold =</span> <span class="dv">30</span>)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>Jeśli zależy nam na obliczeniu anizotropii w dokładnie określonym kierunku można użyć parametru <code>anis</code>, który definiuje kąt 0°, 45°, 90°, 135°. Każdy kąt zawiera +/- 22,50° zakresu w jedną bądź w drugą stronę.</p>
+<p><strong>A co z pozostałymi kątami?</strong></p>
+<p>Semiwariancja jest miarą lustrzaną, także nie ma potrzeby określania jej wartości dla kątów 180°, 225°, itp. bo ich wartości będą takie same jak wyniki dla kątów 0°, 45°, itp.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kier &lt;-<span class="st"> </span><span class="kw">variogram</span>(Co~<span class="dv">1</span>, dane, <span class="dt">cutoff =</span> <span class="dv">3</span>, <span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">45</span>,<span class="dv">90</span>,<span class="dv">135</span>))
+<span class="kw">plot</span>(kier, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>) <span class="co">#type określa sposób wyświetlania danych #b oznacza, że chcemy wyświetlić zarówno punkty, jak i linie</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>Ostatnim krokiem jest dopasowanie modelu do semiwariogramów. Nie jest to proste zadanie, z uwagi na zachodzące zajawisko anizotropii, semiwariogramy się od siebie różnią. Jest to kłopotliwe, ponieważ często typy modeli są inne, a w modelowaniu podajemy tylko <strong>jedną</strong> funkcję <em>vgm()</em> do wszystkich kierunków wzbogaconą o parametr <code>alpha</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">kier &lt;-<span class="st"> </span><span class="kw">variogram</span>(Co~<span class="dv">1</span>, dane, <span class="dt">cutoff =</span> <span class="dv">3</span>, <span class="dt">width =</span> <span class="fl">0.25</span>, <span class="dt">alpha =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">45</span>,<span class="dv">90</span>,<span class="dv">135</span>))
+model_kier &lt;-<span class="st"> </span><span class="kw">vgm</span>(<span class="st">&quot;Sph&quot;</span>, <span class="dt">nugget =</span><span class="fl">1.16</span> ,  <span class="dt">psill =</span><span class="fl">12.5</span>, <span class="dt">range =</span> <span class="fl">1.14</span>, <span class="dt">anis =</span> <span class="kw">c</span>(<span class="dv">90</span>, <span class="fl">0.5</span>))
+<span class="kw">plot</span>(kier, model_kier)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Do wyznaczania modelu, równie dobrze może posłużyć funkcja <code>fit.variogram()</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fit_kier &lt;-<span class="st"> </span><span class="kw">fit.variogram</span>(kier, model_kier)
+<span class="kw">plot</span>(kier, fit_kier)</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>Zagadnienie anizotropii w R nie jest trudne. Natomiast poznanie jej realnych przyczyn jest już bardzo skomplikowane i zazwyczaj wymaga wiedzy eksperckiej.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="co-dalej.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02-zaczynamyprace.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
